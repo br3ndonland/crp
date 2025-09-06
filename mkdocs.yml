@@ -5,7 +5,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.magiclink:
       user: br3ndonland
-      repo: template-python
+      repo: crp
       repo_url_shorthand: true
   - pymdownx.snippets
   - pymdownx.superfences
@@ -17,9 +17,9 @@ markdown_extensions:
       toc_depth: 3
 nav:
   - "index.md"
-repo_name: br3ndonland/template-python
-repo_url: https://github.com/br3ndonland/template-python
-site_name: template-python docs
+repo_name: br3ndonland/crp
+repo_url: https://github.com/br3ndonland/crp
+site_name: crp docs
 site_url: ""
 theme:
   favicon: assets/images/favicon.png
@@ -31,20 +31,20 @@ theme:
     - navigation.top
   font: false
   icon:
-    logo: octicons/book-24
-    repo: octicons/mark-github-16
+    logo: octicons/image-24
+    repo: octicons/mark-github-24
   name: material
   palette:
     - media: "(prefers-color-scheme: dark)"
-      accent: cyan
-      primary: cyan
+      accent: deep purple
+      primary: deep purple
       scheme: slate
       toggle:
         icon: material/weather-night
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      accent: cyan
-      primary: cyan
+      accent: deep purple
+      primary: deep purple
       scheme: default
       toggle:
         icon: material/weather-sunny

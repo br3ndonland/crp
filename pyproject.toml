@@ -1,10 +1,10 @@
 [project]
-name = "template-python"
-description = "Your project description here."
+name = "crp"
+description = "Tools for cropping images."
 readme = "README.md"
 requires-python = ">=3.10,<4"
 license = "MIT"
-authors = [{ name = "Your Name", email = "you@example.com" }]
+authors = [{ name = "Brendon Smith", email = "bws@bws.bio" }]
 classifiers = [
   "Natural Language :: English",
   "Programming Language :: Python :: 3",
@@ -38,18 +38,22 @@ build-backend = "hatchling.build"
 
 [tool.coverage.report]
 exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
-fail_under = 68
+fail_under = 100
 show_missing = true
 
 [tool.coverage.run]
 command_line = "-m pytest"
-source = ["template_python", "tests"]
+source_pkgs = ["crp", "tests"]
+
+[tool.coverage.paths]
+crp = ["src/crp"]
+tests = ["tests"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/template_python"]
+include = ["/src", "/tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["template_python"]
+packages = ["src/crp"]
 
 [tool.hatch.envs.ci]
 dev-mode = false
@@ -71,22 +75,17 @@ check = [
   "ruff check",
   "ruff format --check",
   "mypy",
-  "npx -s -y prettier@'^3.4' . --check",
+  "npx -s -y prettier@'^3' . --check",
   "npx -s -y cspell --dot --gitignore *.md **/*.md",
 ]
 format = [
   "ruff check --fix",
   "ruff format",
-  "npx -s -y prettier@'^3.4' . --write",
+  "npx -s -y prettier@'^3' . --write",
 ]
 
-[tool.hatch.envs.production]
-dev-mode = false
-features = []
-path = ".venv"
-
 [tool.hatch.version]
-path = "template_python/__init__.py"
+path = "src/crp/__init__.py"
 
 [tool.mypy]
 exclude_gitignore = true
@@ -99,7 +98,7 @@ minversion = "6.0"
 testpaths = ["tests"]
 
 [tool.ruff]
-src = ["template_python", "tests"]
+src = ["src", "tests"]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -108,4 +107,4 @@ docstring-code-format = true
 extend-select = ["I", "UP"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["template_python", "tests"]
+known-first-party = ["src", "tests"]

@@ -92,6 +92,7 @@
     "starlette",
     "stdlib",
     "subpackages",
+    "tmdb",
     "typeshed",
     "unittests",
     "uvicorn",
