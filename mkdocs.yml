@@ -17,6 +17,7 @@ markdown_extensions:
       toc_depth: 3
 nav:
   - "index.md"
+  - "contributing.md"
 repo_name: br3ndonland/crp
 repo_url: https://github.com/br3ndonland/crp
 site_name: crp docs
