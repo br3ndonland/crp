@@ -34,5 +34,14 @@ To see the help text, run `crp --help`/`crp -h`.
 
 ## Related
 
+- GitHub topics:
+  [crop-image](https://github.com/topics/crop-image),
+  [crop](https://github.com/topics/crop),
+  [cropping](https://github.com/topics/cropping),
+  [image-manipulation](https://github.com/topics/image-manipulation),
+  [image-processing](https://github.com/topics/image-processing),
+  [tmdb](https://github.com/topics/tmdb)
+- [`react-easy-crop`](https://github.com/ValentinH/react-easy-crop)/[`svelte-easy-crop`](https://github.com/ValentinH/svelte-easy-crop)
 - [`react-image-crop`](https://github.com/DominicTobias/react-image-crop)
 - [`smartcrop.js`](https://github.com/jwagner/smartcrop.js)
+- [`smartcrop.py`](https://github.com/smartcrop/smartcrop.py)
