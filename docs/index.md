@@ -2,6 +2,7 @@
 
 _Tools for cropping images._
 
+[![PyPI](https://img.shields.io/pypi/v/crp?color=success)](https://pypi.org/project/crp/)
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?logo=pytest&logoColor=white)](https://coverage.readthedocs.io/en/latest/)
 [![ci](https://github.com/br3ndonland/crp/workflows/ci/badge.svg)](https://github.com/br3ndonland/crp/actions/workflows/ci.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
