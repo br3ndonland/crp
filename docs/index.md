@@ -18,10 +18,10 @@ Images often need to be cropped to specific aspect ratios and dimensions for upl
     - Invoke with `crp` or `python -m crp`
 - [pipx](https://pipx.pypa.io/stable/getting-started/)
     - Install CLI with `pipx install crp` and invoke with `crp`
-    - Run one-off commands with `pipx run crp`
+    - Run without installing CLI with `pipx run crp`
 - [uv](https://docs.astral.sh/uv/guides/tools/)
     - Install CLI with `uv tool install crp` and invoke with `crp`
-    - Run one-off commands with `uvx crp`
+    - Run without installing CLI with `uvx crp`
 
 ## Usage
 
