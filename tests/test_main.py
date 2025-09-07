@@ -42,3 +42,27 @@ def test_version_option() -> None:
     result = runner.invoke(cli, ["--version"])
     assert result.exit_code == 0
     assert result.output == expected_output
+
+
+@pytest.mark.subprocess
+def test_version_option_with_runpy() -> None:
+    """Test that the `--version` option displays the expected package name and version
+    when the program is invoked with `python -m`. When invoking with `python -m`, the
+    default program name shown in help text is `python -m program_name` instead of just
+    `program_name`. The `prog_name` argument to `click.version_option()` tells Click to
+    output the `prog_name` whether the program is invoked directly or with `python -m`.
+
+    https://docs.python.org/3/library/__main__.html#main-py-in-python-packages
+    https://docs.python.org/3/library/runpy.html
+    """
+    import subprocess
+    import sys
+
+    expected_output = f"{crp.__package__}, version {crp.__version__}\n"
+    result = subprocess.run(
+        [sys.executable, "-m", f"{crp.__package__}", "--version"],
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0
+    assert result.stdout == expected_output

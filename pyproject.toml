@@ -28,7 +28,7 @@ docs = [
   "mkdocs-material>=9,<10",
 ]
 tests = [
-  "coverage[toml]>=7,<8",
+  "coverage[toml]>=7.10,<8",
   "httpx>=0.23,<1",
   "pytest>=8.1.1,<9",
   "pytest-mock>=3,<4",
@@ -45,6 +45,7 @@ show_missing = true
 
 [tool.coverage.run]
 command_line = "-m pytest"
+patch = ["subprocess"]
 source_pkgs = ["crp", "tests"]
 
 [tool.coverage.paths]
@@ -96,6 +97,9 @@ strict = true
 
 [tool.pytest.ini_options]
 addopts = "-q"
+markers = [
+  "subprocess: test requires a subprocess (deselect with '-m \"not subprocess\"')",
+]
 minversion = "6.0"
 testpaths = ["tests"]
 

@@ -111,7 +111,9 @@ jobs:
       - name: Run tests
         run: hatch run ${{ env.HATCH_ENV }}:coverage run
       - name: Enforce test coverage
-        run: hatch run ${{ env.HATCH_ENV }}:coverage report
+        run: |
+          hatch run ${{ env.HATCH_ENV }}:coverage combine -q
+          hatch run ${{ env.HATCH_ENV }}:coverage report
       - name: Build Python package
         run: hatch build
       - name: Upload Python package artifacts
