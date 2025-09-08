@@ -4,23 +4,10 @@ from click.testing import CliRunner
 from crp.main import cli
 
 
-@pytest.mark.parametrize(
-    ("width", "height", "expected_width", "expected_height"),
-    (
-        (1920, 1080, 1920, 1080),
-        (2000, 1101, 1957, 1101),
-        (3840, 2160, 3840, 2160),
-        (3940, 2160, 3840, 2160),
-        (4000, 2260, 4000, 2250),
-        # TODO: enforce minimum and maximum dimensions
-        # https://www.themoviedb.org/bible/image
-        # (4000, 2260, 3840, 2160),
-    ),
-)
-def test_suggest_dimensions_for_backdrop(
-    width: int, height: int, expected_width: int, expected_height: int
-) -> None:
-    """Test suggested crop values for backdrops with given width and height."""
+@pytest.mark.parametrize(("width", "height"), ((640, 480), (1920, 600), (230, 100)))
+def test_minimum_dimensions_for_backdrop(width: int, height: int) -> None:
+    """Test that providing values below minimum width and height raises an exception."""
+    expected_output = "smaller than the minimum dimensions required for upload to TMDB"
     runner_args = [
         "suggest",
         "--width",
@@ -31,26 +18,14 @@ def test_suggest_dimensions_for_backdrop(
     ]
     runner = CliRunner()
     result = runner.invoke(cli, runner_args)
-    assert f"Crop to {expected_width}x{expected_height}" in result.output
+    assert result.exit_code > 0
+    assert expected_output in result.output
 
 
-@pytest.mark.parametrize(
-    ("width", "height", "expected_width", "expected_height"),
-    (
-        (1000, 1500, 1000, 1500),
-        (1300, 2100, 1300, 1950),
-        (1652, 2214, 1476, 2214),
-        (2000, 3000, 2000, 3000),
-        (2100, 3005, 2003, 3005),
-        # TODO: enforce minimum and maximum dimensions
-        # https://www.themoviedb.org/bible/image
-        # (2100, 3005, 2000, 3000),
-    ),
-)
-def test_suggest_dimensions_for_poster(
-    width: int, height: int, expected_width: int, expected_height: int
-) -> None:
-    """Test suggested crop values for posters with given width and height."""
+@pytest.mark.parametrize(("width", "height"), ((400, 600), (490, 800), (600, 650)))
+def test_minimum_dimensions_for_poster(width: int, height: int) -> None:
+    """Test that providing values below minimum width and height raises an exception."""
+    expected_output = "smaller than the minimum dimensions required for upload to TMDB"
     runner_args = [
         "suggest",
         "--width",
@@ -61,4 +36,61 @@ def test_suggest_dimensions_for_poster(
     ]
     runner = CliRunner()
     result = runner.invoke(cli, runner_args)
-    assert f"Crop to {expected_width}x{expected_height}" in result.output
+    assert result.exit_code > 0
+    assert expected_output in result.output
+
+
+@pytest.mark.parametrize(
+    ("width", "height", "expected_width", "expected_height"),
+    (
+        (1920, 1080, 1920, 1080),
+        (2000, 1101, 1957, 1101),
+        (3840, 2160, 3840, 2160),
+        (3940, 2160, 3840, 2160),
+        (4000, 2260, 3840, 2160),
+    ),
+)
+def test_suggest_dimensions_for_backdrop(
+    width: int, height: int, expected_width: int, expected_height: int
+) -> None:
+    """Test suggested crop values for backdrops with given width and height."""
+    expected_output = f"Crop backdrop to {expected_width} x {expected_height} (16:9).\n"
+    runner_args = [
+        "suggest",
+        "--width",
+        str(width),
+        "--height",
+        str(height),
+        "backdrop",
+    ]
+    runner = CliRunner()
+    result = runner.invoke(cli, runner_args)
+    assert result.output == expected_output
+
+
+@pytest.mark.parametrize(
+    ("width", "height", "expected_width", "expected_height"),
+    (
+        (1000, 1500, 1000, 1500),
+        (1300, 2100, 1300, 1950),
+        (1652, 2214, 1476, 2214),
+        (2000, 3000, 2000, 3000),
+        (2100, 3005, 2000, 3000),
+    ),
+)
+def test_suggest_dimensions_for_poster(
+    width: int, height: int, expected_width: int, expected_height: int
+) -> None:
+    """Test suggested crop values for posters with given width and height."""
+    expected_output = f"Crop poster to {expected_width} x {expected_height} (2:3).\n"
+    runner_args = [
+        "suggest",
+        "--width",
+        str(width),
+        "--height",
+        str(height),
+        "poster",
+    ]
+    runner = CliRunner()
+    result = runner.invoke(cli, runner_args)
+    assert result.output == expected_output
