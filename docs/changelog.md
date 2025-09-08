@@ -1,5 +1,48 @@
 # Changelog
 
+## 0.0.2 - 2025-09-08
+
+### Changes
+
+**Enforce minimum and maximum image dimensions**
+(3c673c219869f3be2fb4a88dc533ebf93bb7a2fa)
+
+This release will add enforcement of minimum and maximum image
+dimensions to the `suggest` subcommand.
+
+- Backdrops (16:9): minimum 1280x720 pixels, maximum 3840x2160 pixels
+- Posters (2:3): minimum 500x750 pixels, maximum 2000x3000 pixels
+
+This will be accomplished with a dataclass that checks image dimensions
+as part of its `__init__` method. Tests will be added to verify that the
+error messages and exit codes are propagated back to the user.
+
+### Commits
+
+- Bump version from 0.0.1 to 0.0.2 (7268885)
+- Enforce minimum and maximum image dimensions (3c673c2)
+- Add more related projects to README (f0aa320)
+- Clarify installing vs. running CLI in README (4b15489)
+- Add PyPI badge to README (958eff9)
+- Add test coverage badge to README (3641bbf)
+- Remove CodeQL GitHub Actions workflow (1a53bce)
+- Format Git tag messages with Prettier (d7136fc)
+- Update references to `develop` branch (755610f)
+- Update changelog for version 0.0.1 (#1) (f320050)
+
+Tagger: Brendon Smith <bws@bws.bio>
+
+Date: 2025-09-08 01:45:12 -0400
+
+```text
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
+kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQKKlG8jFW3Elsf0Jplxdp2e8sNULHMNhWL/Q9wJKFs7ACC6wy5MRvD6qQw0VQukT+a
+UOec6ayxMQxrAQsgwc9wA=
+-----END SSH SIGNATURE-----
+```
+
 ## 0.0.1 - 2025-09-07
 
 ### Changes
