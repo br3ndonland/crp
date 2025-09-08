@@ -1,7 +1,6 @@
 import dataclasses
 import enum
-
-from typing_extensions import override
+from typing import override
 
 
 @dataclasses.dataclass
