@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.0.3 - 2025-09-08
+
+### Changes
+
+**Drop support for Python 3.11**
+(ade0b0e2ff6d611dc40ce8c224bec172f9dc68f8)
+
+This release will drop support for Python 3.11 and set the minimum
+required version to Python 3.12. This is needed due to the use of the
+[`@typing.override`](https://docs.python.org/3/library/typing.html#typing.override)
+decorator that was introduced in Python 3.12. It is also possible to
+install the `typing_extensions` package as a runtime dependency if
+support for older versions of Python is needed. This project is new and
+does not need to support older versions of Python, so it is simpler to
+just drop support for Python 3.11.
+
+### Commits
+
+- Bump version from 0.0.2 to 0.0.3 (b877c36)
+- Drop support for Python 3.11 (ade0b0e)
+- Update changelog for version 0.0.2 (#2) (0db3694)
+- Add `workflow_dispatch` to changelog job (e8d926e)
+- Fix ref in GitHub Actions changelog job (3ca374f)
+
+Tagger: Brendon Smith <bws@bws.bio>
+
+Date: 2025-09-08 04:16:42 -0400
+
+```text
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
+kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQGrPPnzaE2fsO9Uv8aVew/JSESmvfEcwbPpSAmuqeEpIum/R4d8oadzPRcrbn77kZ5
+QDz36QTatBXp/PVjvZjQg=
+-----END SSH SIGNATURE-----
+```
+
 ## 0.0.2 - 2025-09-08
 
 ### Changes
