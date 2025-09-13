@@ -45,3 +45,4 @@ To see the help text, run `crp --help`/`crp -h`.
 - [`react-image-crop`](https://github.com/DominicTobias/react-image-crop)
 - [`smartcrop.js`](https://github.com/jwagner/smartcrop.js)
 - [`smartcrop.py`](https://github.com/smartcrop/smartcrop.py)
+- [TMDB Trello: Add support for image cropping](https://trello.com/c/9nVLokdG/237-add-support-for-image-cropping)
