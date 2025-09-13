@@ -26,8 +26,8 @@ Images often need to be cropped to specific aspect ratios and dimensions for upl
 ## Usage
 
 ```sh
-crp suggest --width=3940 --height 2160 backdrop # Crop to 3840x2160
-crp suggest --width 1652 --height 2214 poster # Crop to 1476x2214
+crp suggest --width=3940 --height 2160 backdrop # Crop to 3840 x 2160 (16:9).
+crp suggest --width 1652 --height 2214 poster # Crop to 1476 x 2214 (2:3).
 ```
 
 To see the help text, run `crp --help`/`crp -h`.

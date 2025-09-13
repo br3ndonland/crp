@@ -29,14 +29,14 @@ def suggest(image_type: ImageType, width: int, height: int) -> None:
     conform to [TMDB guidelines](https://www.themoviedb.org/bible/image).
 
     \b
-    Backdrops (16:9): minimum 1280x720 pixels, maximum 3840x2160 pixels
-    Posters (2:3): minimum 500x750 pixels, maximum 2000x3000 pixels
+    Backdrops (16:9): minimum 1280 x 720 pixels, maximum 3840 x 2160 pixels
+    Posters (2:3): minimum 500 x 750 pixels, maximum 2000 x 3000 pixels
 
     Examples:
 
     \b
-    crp suggest --width=3940 --height 2160 backdrop -> Crop to 3840x2160
-    crp suggest --width 1652 --height 2214 poster -> Crop to 1476x2214
+    crp suggest --width=3940 --height 2160 backdrop ->  Crop to 3840 x 2160 (16:9).
+    crp suggest --width 1652 --height 2214 poster ->  Crop to 1476 x 2214 (2:3).
     """
     # `-h` is not used as a short option for `--height` because it would conflict
     # with the `-h` used for help (https://github.com/pallets/click/issues/2819).
