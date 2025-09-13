@@ -9,7 +9,9 @@ _Tools for cropping images._
 
 ## Description
 
-Images often need to be cropped to specific aspect ratios and dimensions for upload to sites like [TheMovieDB](https://www.themoviedb.org/) (TMDB). [TheMovieDB's image upload guidelines](https://www.themoviedb.org/bible/image) explain that backdrops should be in a 16:9 aspect ratio (width x height) and posters should be in a 2:3 aspect ratio. This project provides a command-line interface (CLI) that suggests dimensions to use for cropping.
+Images often need to be cropped to specific aspect ratios and dimensions for upload to sites like [TheMovieDB](https://www.themoviedb.org/) (TMDB). [TheMovieDB's image upload guidelines](https://www.themoviedb.org/bible/image) explain that backdrops should be in a 16:9 aspect ratio (width x height) and posters should be in a 2:3 aspect ratio. Some sites have auto-cropping features that will offer to crop images to the required dimensions during upload, but this is often not adequate. Images often need further editing beyond just brute-force auto-cropping. It's therefore helpful to have dimensions to use as a guideline when editing images.
+
+This project provides a command-line interface (CLI) that suggests dimensions to use for cropping.
 
 ## Installation
 
