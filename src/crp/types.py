@@ -41,6 +41,13 @@ class Image:
     maximum_height: int
 
     def __init__(self, image_type: ImageType, *, width: int, height: int) -> None:
+        self.image_type = image_type
+        if not width and not height:
+            raise ValueError("Neither width nor height supplied.")
+        if not width:
+            width = int(height * (self.aspect_ratio.width / self.aspect_ratio.height))
+        if not height:
+            height = int(width * (self.aspect_ratio.height / self.aspect_ratio.width))
         if image_type is ImageType.BACKDROP:
             minimum_width = 1280
             minimum_height = 720
@@ -58,7 +65,6 @@ class Image:
                 f"({minimum_width} x {minimum_height})."
             )
             raise ValueError(error_message)
-        self.image_type = image_type
         self.width = width
         self.height = height
         self.minimum_width = minimum_width

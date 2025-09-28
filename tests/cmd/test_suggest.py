@@ -4,6 +4,58 @@ from click.testing import CliRunner
 from crp.main import cli
 
 
+def test_missing_width_and_height() -> None:
+    """Test that omitting width and height raises an exception."""
+    expected_output = "Neither width nor height supplied"
+    runner_args = ["suggest", "backdrop"]
+    runner = CliRunner()
+    result = runner.invoke(cli, runner_args)
+    assert result.exit_code > 0
+    assert expected_output in result.output
+
+
+@pytest.mark.parametrize(
+    ("image_type", "height", "expected_width", "expected_height"),
+    (
+        ("backdrop", 2160, 3840, 2160),
+        ("backdrop", 3000, 3840, 2160),
+        ("poster", 1500, 1000, 1500),
+        ("poster", 2100, 1400, 2100),
+    ),
+)
+def test_missing_width(
+    image_type: str, height: int, expected_width: int, expected_height: int
+) -> None:
+    """Test that omitting width sets the expected default height."""
+    expected_output = f"Crop {image_type} to {expected_width} x {expected_height}"
+    runner_args = ["suggest", "--height", str(height), image_type]
+    runner = CliRunner()
+    result = runner.invoke(cli, runner_args)
+    assert result.exit_code == 0
+    assert expected_output in result.output
+
+
+@pytest.mark.parametrize(
+    ("image_type", "width", "expected_width", "expected_height"),
+    (
+        ("backdrop", 3840, 3840, 2160),
+        ("backdrop", 5000, 3840, 2160),
+        ("poster", 1000, 1000, 1500),
+        ("poster", 2200, 2000, 3000),
+    ),
+)
+def test_missing_height(
+    image_type: str, width: int, expected_width: int, expected_height: int
+) -> None:
+    """Test that omitting height sets the expected default width."""
+    expected_output = f"Crop {image_type} to {expected_width} x {expected_height}"
+    runner_args = ["suggest", "--width", str(width), image_type]
+    runner = CliRunner()
+    result = runner.invoke(cli, runner_args)
+    assert result.exit_code == 0
+    assert expected_output in result.output
+
+
 @pytest.mark.parametrize(("width", "height"), ((640, 480), (1920, 600), (230, 100)))
 def test_minimum_dimensions_for_backdrop(width: int, height: int) -> None:
     """Test that providing values below minimum width and height raises an exception."""
