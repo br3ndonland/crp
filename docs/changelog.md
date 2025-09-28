@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.0.4 - 2025-09-28
+
+### Changes
+
+**Handle missing dimensions in `suggest` subcommand**
+(c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
+
+The [Click docs](https://click.palletsprojects.com/en/stable/arguments/)
+on arguments explain:
+
+> It is possible to make an argument required by setting
+> `required=True`. It is not recommended since we think command line
+> tools should gracefully degrade into becoming no ops. We think this
+> because command line tools are often invoked with wildcard inputs and
+> they should not error out if the wildcard is empty.
+
+In the spirit of keeping arguments optional, the `width` and `height`
+arguments to the `crp suggest` subcommand are both optional. However,
+with the code as it is now, both of these arguments should be required.
+Without either width or height, the command will raise the exception
+`'<' not supported between instances of 'NoneType' and 'int'` which
+originates from `if width < minimum_width or height < minimum_height` in
+`crp.types.Image.__init__` (Click sets the missing value to `None`).
+
+Missing dimensions will now be handled in the following manner:
+
+- If neither width nor height are supplied, raise an exception.
+- If only width or only height is supplied, set the missing dimension to
+  a default value appropriate for the aspect ratio of the image type.
+
+### Commits
+
+- Bump version from 0.0.3 to 0.0.4 (c1d297c)
+- Handle missing dimensions in `suggest` subcommand (8d5026e)
+- Limit Click version constraint to minor version (6710c6f)
+- Update to Hatch 1.14.2 (5a3fc35)
+- Use Hatch commands consistently in testing docs (9c4b207)
+- Revert "Move contributing symlink to `.github`" (9967d2a)
+- Move contributing symlink to `.github` (258b924)
+- Justify project in light of auto-cropping features (bf43eb0)
+- Add TMDB auto-cropping Trello link to README (835b88a)
+- Update `suggest` subcommand output format in docs (400982e)
+- Switch type checking from mypy to BasedPyright (527b908)
+- Add `[project.urls]` table to `pyproject.toml` (9af7e84)
+- Add suggested VSCode settings and extensions (414a9b6)
+- Don't use same deployment environment name twice (01fed9d)
+- Update changelog for version 0.0.3 (#3) (cec5635)
+
+Tagger: Brendon Smith <bws@bws.bio>
+
+Date: 2025-09-28 17:37:08 -0400
+
+```text
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
+kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQGtc0wlmm3wBiGrjMr2i8fHIupWDrOjsuPgTo/s2O7QNqYVqcUU7qoQx0THk1tqHGH
+yvhy5SDFujxx2Ad1KC0gE=
+-----END SSH SIGNATURE-----
+```
+
 ## 0.0.3 - 2025-09-08
 
 ### Changes
