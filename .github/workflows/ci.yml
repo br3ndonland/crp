@@ -182,6 +182,17 @@ jobs:
           '
 
           git tag -l --sort=-taggerdate:iso --format="$GIT_LOG_FORMAT" >>docs/changelog.md
+      - name: Fix changelog
+        run: |
+          # Fix changelog
+          #
+          # The previous step in the GitHub Actions job generates a changelog
+          # from Git tag messages and writes the output to Markdown documents.
+          # This step performs post-processing of these Git tag messages as needed.
+          #
+          # The 0.0.4 changelog referenced an incorrect commit ID. This step fixes the commit ID.
+          FIX_COMMIT_ID='s:c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc:8d5026ee61a84a71294c89c2514c1482fcf776f2:g'
+          sed -Ei "$FIX_COMMIT_ID" "docs/changelog.md"
       - name: Format changelog with Prettier
         run: npx -s -y prettier@'^3' --write docs/changelog.md
       - name: Set PR and commit title

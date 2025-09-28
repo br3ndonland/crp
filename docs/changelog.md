@@ -5,7 +5,7 @@
 ### Changes
 
 **Handle missing dimensions in `suggest` subcommand**
-(c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
+(8d5026ee61a84a71294c89c2514c1482fcf776f2)
 
 The [Click docs](https://click.palletsprojects.com/en/stable/arguments/)
 on arguments explain:
