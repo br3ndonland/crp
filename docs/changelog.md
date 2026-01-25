@@ -1,5 +1,60 @@
 # Changelog
 
+## 0.0.5 - 2026-01-25
+
+### Changes
+
+**Migrate to PEP 735 dependency groups**
+(41d430c8d795050f4fec4c85dee70e6f5fcd7ac7)
+
+[Hatch 1.16](https://github.com/pypa/hatch/releases) introduces
+[support](https://hatch.pypa.io/latest/config/environment/overview/#dependency-groups)
+for
+[PEP 735 dependency groups](https://packaging.python.org/en/latest/specifications/dependency-groups/)
+in `pyproject.toml`. Dependency groups allow development dependencies to
+be moved out of the `[project.optional-dependencies]` table and into a
+separate `[dependency-groups]` table. This is helpful because optional
+dependencies are included with package metadata, so previously, groups
+of dependencies in the `[project.optional-dependencies]` table (also
+called "features" or "extras") were all included in the built package,
+and visible in `PKG-INFO` text files in sdists (source distributions),
+even if they were only used for development of the project itself. The
+`[dependency-groups]` table is not included in built packages, so the
+package has cleaner metadata when built and distributed to registries
+like PyPI.
+
+When building packages with `hatch build`, there is now an undocumented
+requirement for `builder = true` in the Hatch environment used to build.
+Without `builder = true`, Hatch will error because the environment "is
+not a builder environment"
+([pypa/hatch#2113](https://github.com/pypa/hatch/issues/2113)). Hatch
+1.16.3 or later is required to use dependency groups in builder
+environments
+([pypa/hatch#2152](https://github.com/pypa/hatch/issues/2152)).
+
+### Commits
+
+- Bump version from 0.0.4 to 0.0.5 (941eda3)
+- Contain workflow permissions (a75a403)
+- Migrate to PEP 735 dependency groups (41d430c)
+- Update Vercel configuration for uv (b48c146)
+- Update to pipx 1.8.0 (59ea7a2)
+- Fix commit ID in 0.0.4 changelog (70d5b0b)
+- Update changelog for version 0.0.4 (#4) (84bb21d)
+
+Tagger: Brendon Smith <bws@bws.bio>
+
+Date: 2026-01-25 18:33:34 -0500
+
+```text
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
+kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJstRDo5ZMkLLpL7/XjGv44U0A3eQDiHpHbcCEumDzfy3zpVs105sctkvkFYujdfED
+FKesnQf/fwQijhFTwMpgc=
+-----END SSH SIGNATURE-----
+```
+
 ## 0.0.4 - 2025-09-28
 
 ### Changes
