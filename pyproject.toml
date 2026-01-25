@@ -94,6 +94,12 @@ format = [
   "npx -s -y prettier@'^3' . --write",
 ]
 
+[tool.hatch.envs.docs]
+dev-mode = false
+features = [
+  "docs",
+]
+
 [tool.hatch.version]
 path = "src/crp/__init__.py"
 
