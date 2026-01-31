@@ -29,7 +29,7 @@ This project provides a command-line interface (CLI) that suggests dimensions to
 
 ```sh
 crp suggest --width=3940 --height 2160 backdrop # Crop to 3840 x 2160 (16:9).
-crp suggest --width 1652 --height 2214 poster # Crop to 1476 x 2214 (2:3).
+crp suggest --width 1652 --height 2214 poster   # Crop to 1476 x 2214 (2:3).
 ```
 
 To see the help text, run `crp --help`/`crp -h`.
