@@ -26,7 +26,7 @@ crp = "crp.main:cli"
 [dependency-groups]
 checks = [
   "basedpyright>=1,<2",
-  "ruff>=0.14,<0.15",
+  "ruff>=0.15,<0.16",
 ]
 docs = [
   "mkdocs-material>=9,<10",
