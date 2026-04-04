@@ -42,25 +42,12 @@ environments
 - Fix commit ID in 0.0.4 changelog (70d5b0b)
 - Update changelog for version 0.0.4 (#4) (84bb21d)
 
-Tagger: Brendon Smith <bws@bws.bio>
-
-Date: 2026-01-25 18:33:34 -0500
-
-```text
------BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
-kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJstRDo5ZMkLLpL7/XjGv44U0A3eQDiHpHbcCEumDzfy3zpVs105sctkvkFYujdfED
-FKesnQf/fwQijhFTwMpgc=
------END SSH SIGNATURE-----
-```
-
 ## 0.0.4 - 2025-09-28
 
 ### Changes
 
 **Handle missing dimensions in `suggest` subcommand**
-(8d5026ee61a84a71294c89c2514c1482fcf776f2)
+(c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
 
 The [Click docs](https://click.palletsprojects.com/en/stable/arguments/)
 on arguments explain:
@@ -103,19 +90,6 @@ Missing dimensions will now be handled in the following manner:
 - Don't use same deployment environment name twice (01fed9d)
 - Update changelog for version 0.0.3 (#3) (cec5635)
 
-Tagger: Brendon Smith <bws@bws.bio>
-
-Date: 2025-09-28 17:37:08 -0400
-
-```text
------BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
-kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQGtc0wlmm3wBiGrjMr2i8fHIupWDrOjsuPgTo/s2O7QNqYVqcUU7qoQx0THk1tqHGH
-yvhy5SDFujxx2Ad1KC0gE=
------END SSH SIGNATURE-----
-```
-
 ## 0.0.3 - 2025-09-08
 
 ### Changes
@@ -139,19 +113,6 @@ just drop support for Python 3.11.
 - Update changelog for version 0.0.2 (#2) (0db3694)
 - Add `workflow_dispatch` to changelog job (e8d926e)
 - Fix ref in GitHub Actions changelog job (3ca374f)
-
-Tagger: Brendon Smith <bws@bws.bio>
-
-Date: 2025-09-08 04:16:42 -0400
-
-```text
------BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
-kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQGrPPnzaE2fsO9Uv8aVew/JSESmvfEcwbPpSAmuqeEpIum/R4d8oadzPRcrbn77kZ5
-QDz36QTatBXp/PVjvZjQg=
------END SSH SIGNATURE-----
-```
 
 ## 0.0.2 - 2025-09-08
 
@@ -182,19 +143,6 @@ error messages and exit codes are propagated back to the user.
 - Format Git tag messages with Prettier (d7136fc)
 - Update references to `develop` branch (755610f)
 - Update changelog for version 0.0.1 (#1) (f320050)
-
-Tagger: Brendon Smith <bws@bws.bio>
-
-Date: 2025-09-08 01:45:12 -0400
-
-```text
------BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
-kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQKKlG8jFW3Elsf0Jplxdp2e8sNULHMNhWL/Q9wJKFs7ACC6wy5MRvD6qQw0VQukT+a
-UOec6ayxMQxrAQsgwc9wA=
------END SSH SIGNATURE-----
-```
 
 ## 0.0.1 - 2025-09-07
 
@@ -251,16 +199,3 @@ version to 3.11 accordingly.
 - Update `.gitignore` (36a434b)
 - Remove example code (70c0b28)
 - Initial commit (d1b3efa)
-
-Tagger: Brendon Smith <bws@bws.bio>
-
-Date: 2025-09-07 03:38:31 -0400
-
-```text
------BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgwLDNmire1DHY/g9GC1rGGr+mrE
-kJ3FC96XsyoFKzm6IAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJFoREsICt+w9C9qje4acnBmk52Rg/51fGsxQ6ZCEoMbIo2iq4gjFOgZFcTtKBPrwb
-jQHsBgu8Eox6pNaUYY+Qw=
------END SSH SIGNATURE-----
-```
