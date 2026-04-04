@@ -1,3 +1,7 @@
+---
+icon: lucide/image
+---
+
 # crp
 
 _Tools for cropping images._
