@@ -33,7 +33,7 @@ docs = [
 ]
 tests = [
   "coverage[toml]>=7.10,<8",
-  "pytest>=8.1.1,<9",
+  "pytest>=9,<10",
 ]
 
 [build-system]
@@ -102,12 +102,12 @@ dependency-groups = [
 [tool.hatch.version]
 path = "src/crp/__init__.py"
 
-[tool.pytest.ini_options]
-addopts = "-q"
+[tool.pytest]
+addopts = ["-q"]
 markers = [
   "subprocess: test requires a subprocess (deselect with '-m \"not subprocess\"')",
 ]
-minversion = "6.0"
+minversion = "9.0"
 testpaths = ["tests"]
 
 [tool.ruff]
