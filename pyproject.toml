@@ -57,6 +57,9 @@ source_pkgs = ["crp", "tests"]
 crp = ["src/crp"]
 tests = ["tests"]
 
+[tool.hatch]
+locker = "pip"
+
 [tool.hatch.build.targets.sdist]
 include = ["/src", "/tests"]
 
@@ -66,6 +69,7 @@ packages = ["src/crp"]
 [tool.hatch.envs.ci]
 builder = true
 dev-mode = false
+locked = true
 dependency-groups = [
   "checks",
   "tests",
@@ -73,6 +77,7 @@ dependency-groups = [
 
 [tool.hatch.envs.default]
 dev-mode = true
+locked = true
 dependency-groups = [
   "checks",
   "docs",
@@ -95,6 +100,7 @@ format = [
 
 [tool.hatch.envs.docs]
 dev-mode = false
+locked = true
 dependency-groups = [
   "docs",
 ]
