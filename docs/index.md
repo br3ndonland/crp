@@ -6,10 +6,7 @@ icon: lucide/image
 
 _Tools for cropping images._
 
-[![PyPI](https://img.shields.io/pypi/v/crp?color=success)](https://pypi.org/project/crp/)
-[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?logo=pytest&logoColor=white)](https://coverage.readthedocs.io/en/latest/)
-[![ci](https://github.com/br3ndonland/crp/workflows/ci/badge.svg)](https://github.com/br3ndonland/crp/actions/workflows/ci.yml)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![PyPI](https://img.shields.io/pypi/v/crp?color=success)](https://pypi.org/project/crp/) [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?logo=pytest&logoColor=white)](https://coverage.readthedocs.io/en/latest/) [![ci](https://github.com/br3ndonland/crp/workflows/ci/badge.svg)](https://github.com/br3ndonland/crp/actions/workflows/ci.yml) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 ## Description
 
@@ -40,13 +37,7 @@ To see the help text, run `crp --help`/`crp -h`.
 
 ## Related
 
-- GitHub topics:
-  [crop-image](https://github.com/topics/crop-image),
-  [crop](https://github.com/topics/crop),
-  [cropping](https://github.com/topics/cropping),
-  [image-manipulation](https://github.com/topics/image-manipulation),
-  [image-processing](https://github.com/topics/image-processing),
-  [tmdb](https://github.com/topics/tmdb)
+- GitHub topics: [crop-image](https://github.com/topics/crop-image), [crop](https://github.com/topics/crop), [cropping](https://github.com/topics/cropping), [image-manipulation](https://github.com/topics/image-manipulation), [image-processing](https://github.com/topics/image-processing), [tmdb](https://github.com/topics/tmdb)
 - [`react-easy-crop`](https://github.com/ValentinH/react-easy-crop)/[`svelte-easy-crop`](https://github.com/ValentinH/svelte-easy-crop)
 - [`react-image-crop`](https://github.com/DominicTobias/react-image-crop)
 - [`smartcrop.js`](https://github.com/jwagner/smartcrop.js)

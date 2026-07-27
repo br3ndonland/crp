@@ -8,33 +8,11 @@ icon: lucide/clipboard-clock
 
 ### Changes
 
-**Migrate to PEP 735 dependency groups**
-(41d430c8d795050f4fec4c85dee70e6f5fcd7ac7)
+**Migrate to PEP 735 dependency groups** (41d430c8d795050f4fec4c85dee70e6f5fcd7ac7)
 
-[Hatch 1.16](https://github.com/pypa/hatch/releases) introduces
-[support](https://hatch.pypa.io/latest/config/environment/overview/#dependency-groups)
-for
-[PEP 735 dependency groups](https://packaging.python.org/en/latest/specifications/dependency-groups/)
-in `pyproject.toml`. Dependency groups allow development dependencies to
-be moved out of the `[project.optional-dependencies]` table and into a
-separate `[dependency-groups]` table. This is helpful because optional
-dependencies are included with package metadata, so previously, groups
-of dependencies in the `[project.optional-dependencies]` table (also
-called "features" or "extras") were all included in the built package,
-and visible in `PKG-INFO` text files in sdists (source distributions),
-even if they were only used for development of the project itself. The
-`[dependency-groups]` table is not included in built packages, so the
-package has cleaner metadata when built and distributed to registries
-like PyPI.
+[Hatch 1.16](https://github.com/pypa/hatch/releases) introduces [support](https://hatch.pypa.io/latest/config/environment/overview/#dependency-groups) for [PEP 735 dependency groups](https://packaging.python.org/en/latest/specifications/dependency-groups/) in `pyproject.toml`. Dependency groups allow development dependencies to be moved out of the `[project.optional-dependencies]` table and into a separate `[dependency-groups]` table. This is helpful because optional dependencies are included with package metadata, so previously, groups of dependencies in the `[project.optional-dependencies]` table (also called "features" or "extras") were all included in the built package, and visible in `PKG-INFO` text files in sdists (source distributions), even if they were only used for development of the project itself. The `[dependency-groups]` table is not included in built packages, so the package has cleaner metadata when built and distributed to registries like PyPI.
 
-When building packages with `hatch build`, there is now an undocumented
-requirement for `builder = true` in the Hatch environment used to build.
-Without `builder = true`, Hatch will error because the environment "is
-not a builder environment"
-([pypa/hatch#2113](https://github.com/pypa/hatch/issues/2113)). Hatch
-1.16.3 or later is required to use dependency groups in builder
-environments
-([pypa/hatch#2152](https://github.com/pypa/hatch/issues/2152)).
+When building packages with `hatch build`, there is now an undocumented requirement for `builder = true` in the Hatch environment used to build. Without `builder = true`, Hatch will error because the environment "is not a builder environment" ([pypa/hatch#2113](https://github.com/pypa/hatch/issues/2113)). Hatch 1.16.3 or later is required to use dependency groups in builder environments ([pypa/hatch#2152](https://github.com/pypa/hatch/issues/2152)).
 
 ### Commits
 
@@ -50,31 +28,18 @@ environments
 
 ### Changes
 
-**Handle missing dimensions in `suggest` subcommand**
-(c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
+**Handle missing dimensions in `suggest` subcommand** (c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
 
-The [Click docs](https://click.palletsprojects.com/en/stable/arguments/)
-on arguments explain:
+The [Click docs](https://click.palletsprojects.com/en/stable/arguments/) on arguments explain:
 
-> It is possible to make an argument required by setting
-> `required=True`. It is not recommended since we think command line
-> tools should gracefully degrade into becoming no ops. We think this
-> because command line tools are often invoked with wildcard inputs and
-> they should not error out if the wildcard is empty.
+> It is possible to make an argument required by setting `required=True`. It is not recommended since we think command line tools should gracefully degrade into becoming no ops. We think this because command line tools are often invoked with wildcard inputs and they should not error out if the wildcard is empty.
 
-In the spirit of keeping arguments optional, the `width` and `height`
-arguments to the `crp suggest` subcommand are both optional. However,
-with the code as it is now, both of these arguments should be required.
-Without either width or height, the command will raise the exception
-`'<' not supported between instances of 'NoneType' and 'int'` which
-originates from `if width < minimum_width or height < minimum_height` in
-`crp.types.Image.__init__` (Click sets the missing value to `None`).
+In the spirit of keeping arguments optional, the `width` and `height` arguments to the `crp suggest` subcommand are both optional. However, with the code as it is now, both of these arguments should be required. Without either width or height, the command will raise the exception `'<' not supported between instances of 'NoneType' and 'int'` which originates from `if width < minimum_width or height < minimum_height` in `crp.types.Image.__init__` (Click sets the missing value to `None`).
 
 Missing dimensions will now be handled in the following manner:
 
 - If neither width nor height are supplied, raise an exception.
-- If only width or only height is supplied, set the missing dimension to
-  a default value appropriate for the aspect ratio of the image type.
+- If only width or only height is supplied, set the missing dimension to a default value appropriate for the aspect ratio of the image type.
 
 ### Commits
 
@@ -98,17 +63,9 @@ Missing dimensions will now be handled in the following manner:
 
 ### Changes
 
-**Drop support for Python 3.11**
-(ade0b0e2ff6d611dc40ce8c224bec172f9dc68f8)
+**Drop support for Python 3.11** (ade0b0e2ff6d611dc40ce8c224bec172f9dc68f8)
 
-This release will drop support for Python 3.11 and set the minimum
-required version to Python 3.12. This is needed due to the use of the
-[`@typing.override`](https://docs.python.org/3/library/typing.html#typing.override)
-decorator that was introduced in Python 3.12. It is also possible to
-install the `typing_extensions` package as a runtime dependency if
-support for older versions of Python is needed. This project is new and
-does not need to support older versions of Python, so it is simpler to
-just drop support for Python 3.11.
+This release will drop support for Python 3.11 and set the minimum required version to Python 3.12. This is needed due to the use of the [`@typing.override`](https://docs.python.org/3/library/typing.html#typing.override) decorator that was introduced in Python 3.12. It is also possible to install the `typing_extensions` package as a runtime dependency if support for older versions of Python is needed. This project is new and does not need to support older versions of Python, so it is simpler to just drop support for Python 3.11.
 
 ### Commits
 
@@ -122,18 +79,14 @@ just drop support for Python 3.11.
 
 ### Changes
 
-**Enforce minimum and maximum image dimensions**
-(3c673c219869f3be2fb4a88dc533ebf93bb7a2fa)
+**Enforce minimum and maximum image dimensions** (3c673c219869f3be2fb4a88dc533ebf93bb7a2fa)
 
-This release will add enforcement of minimum and maximum image
-dimensions to the `suggest` subcommand.
+This release will add enforcement of minimum and maximum image dimensions to the `suggest` subcommand.
 
 - Backdrops (16:9): minimum 1280x720 pixels, maximum 3840x2160 pixels
 - Posters (2:3): minimum 500x750 pixels, maximum 2000x3000 pixels
 
-This will be accomplished with a dataclass that checks image dimensions
-as part of its `__init__` method. Tests will be added to verify that the
-error messages and exit codes are propagated back to the user.
+This will be accomplished with a dataclass that checks image dimensions as part of its `__init__` method. Tests will be added to verify that the error messages and exit codes are propagated back to the user.
 
 ### Commits
 
@@ -152,17 +105,11 @@ error messages and exit codes are propagated back to the user.
 
 ### Changes
 
-**Implement `suggest` subcommand**
-(08a18dd648caff3c1cf057c45d225c9bb0565f36,
-a0d70725a95f01992cd616e2c0ee75ad31c381bc)
+**Implement `suggest` subcommand** (08a18dd648caff3c1cf057c45d225c9bb0565f36, a0d70725a95f01992cd616e2c0ee75ad31c381bc)
 
-This release will provide a minimal working implementation of a
-`suggest` subcommand. The purpose of the `suggest` subcommand is to
-suggest dimensions for cropping images of the given image type.
+This release will provide a minimal working implementation of a `suggest` subcommand. The purpose of the `suggest` subcommand is to suggest dimensions for cropping images of the given image type.
 
-Images often need to be cropped to specific aspect ratios and dimensions
-for upload to sites like
-[TheMovieDB](https://www.themoviedb.org/bible/image).
+Images often need to be cropped to specific aspect ratios and dimensions for upload to sites like [TheMovieDB](https://www.themoviedb.org/bible/image).
 
 - Backdrops: 16:9 (minimum 1280x720 pixels, maximum 3840x2160 pixels)
 - Posters: 2:3 (minimum 500x750 pixels, maximum 2000x3000 pixels)
@@ -174,17 +121,11 @@ crp suggest --width=3940 --height 2160 backdrop -> Crop to 3840x2160
 crp suggest --width 1652 --height 2214 poster -> Crop to 1476x2214
 ```
 
-`-h` is not used as a short option for `--height` because it would
-conflict with the `-h` used for help.
+`-h` is not used as a short option for `--height` because it would conflict with the `-h` used for help.
 
-This command does not currently enforce minimum and maximum dimensions.
-Support for minimum and maximum dimensions is planned for a future
-release.
+This command does not currently enforce minimum and maximum dimensions. Support for minimum and maximum dimensions is planned for a future release.
 
-The implementation uses
-[`enum.StrEnum`](https://docs.python.org/3/library/enum.html), which was
-introduced in Python 3.11. This release will set the minimum Python
-version to 3.11 accordingly.
+The implementation uses [`enum.StrEnum`](https://docs.python.org/3/library/enum.html), which was introduced in Python 3.11. This release will set the minimum Python version to 3.11 accordingly.
 
 ### Commits
 
