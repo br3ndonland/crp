@@ -13,7 +13,7 @@ classifiers = [
   "Programming Language :: Python :: 3.14",
   "Typing :: Typed",
 ]
-dependencies = ["click>=8.3,<8.4"]
+dependencies = ["click>=8.4,<8.5"]
 dynamic = ["version"]
 
 [project.urls]
