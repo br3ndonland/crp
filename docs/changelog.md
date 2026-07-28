@@ -4,6 +4,56 @@ icon: lucide/clipboard-clock
 
 # Changelog
 
+## 0.0.6 - 2026-07-27
+
+### Changes
+
+**Add Python 3.14 support** (#6, 9dad66edc7e1947fcbb05d16fc7dc4945ebb72f1)
+
+This release will add [Python 3.14](https://docs.python.org/3/whatsnew/3.14.html) support to crp.
+
+- crp will now include a Python 3.14 classifier in its PyPI package
+- crp will now build and publish its PyPI package using Python 3.14
+- crp will now run tests with Python 3.14, in addition to 3.12-3.13
+
+Related projects that have released support for Python 3.14 include:
+
+- Click ([8.3.1 - 2025-11-15](https://github.com/pallets/click/releases/tag/8.3.1))
+- Hatch ([1.15.0 - 2025-10-15](https://github.com/pypa/hatch/releases/tag/hatch-v1.15.0))
+- pipx ([1.9.0 - 2026-03-17](https://github.com/pypa/pipx/releases/tag/1.9.0))
+
+### Commits
+
+- Bump version from 0.0.5 to 0.0.6 (169a2bf)
+- Update to `pypa/gh-action-pypi-publish@v1.14.1` (c979e01)
+- Update to Click 8.4 (764fe1a)
+- Add Python 3.14 support (#6) (9dad66e)
+- Set Prettier `proseWrap` to `never` (f10b5c0)
+- Update to pipx 1.16 (b62c47c)
+- Update to Hatch 1.17 (fff8580)
+- Update to pytest 9 (cecce87)
+- Update to pipx 1.14 (5957dc9)
+- Update to `pypa/gh-action-pypi-publish@v1.14.0` (3ce2b16)
+- Add frontmatter icons to docs (e4170e4)
+- Remove `content.action.view` from `zensical.toml` (ef3d1a9)
+- Simplify changelog format (fa9f756)
+- Migrate from Material for MkDocs to Zensical (85b704d)
+- Update to Ruff 0.15 (5ae9d37)
+- Remove unused test dependencies (83138e2)
+- Use GitHub Actions environment without deployment (3ed08df)
+- Update to pipx 1.11 (0df37f0)
+- Update to `peter-evans/create-pull-request@v8` (0539482)
+- Update to `actions/download-artifact@v8` (37b89e6)
+- Update to `actions/upload-artifact@v7` (23ada24)
+- Update to `actions/cache@v5` (09560d8)
+- Update to `actions/setup-python@v6` (3525e89)
+- Update to `actions/checkout@v6` (4563533)
+- Format README usage code block with shfmt (7ff78fe)
+- Update to Ruff 0.14 (114b4a2)
+- Sort tests dependency group (4ddbddc)
+- Add `[skip ci]` to changelog PRs (7c79821)
+- Update changelog for version 0.0.5 (#5) (66d3006)
+
 ## 0.0.5 - 2026-01-25
 
 ### Changes
@@ -28,7 +78,7 @@ When building packages with `hatch build`, there is now an undocumented requirem
 
 ### Changes
 
-**Handle missing dimensions in `suggest` subcommand** (c1d297c4d5ee338e165cc4d41975eeda2a2bd9cc)
+**Handle missing dimensions in `suggest` subcommand** (8d5026ee61a84a71294c89c2514c1482fcf776f2)
 
 The [Click docs](https://click.palletsprojects.com/en/stable/arguments/) on arguments explain:
 
