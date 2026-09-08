@@ -11,6 +11,7 @@ site_description = "Documentation for the crp Python package"
 site_dir = "public"
 site_name = "crp docs"
 site_url = ""
+strict = true
 use_directory_urls = false
 
 [project.markdown_extensions.admonition]
