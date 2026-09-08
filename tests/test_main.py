@@ -62,6 +62,7 @@ def test_version_option_with_runpy() -> None:
     result = subprocess.run(
         [sys.executable, "-m", f"{crp.__package__}", "--version"],
         capture_output=True,
+        check=False,
         text=True,
     )
     assert result.returncode == 0
